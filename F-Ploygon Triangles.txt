@@ -1,0 +1,36 @@
+/* Code by Pranjal Rai : @Ashtam_Swar */
+#include <bits/stdc++.h>
+using namespace std;
+#define ff first
+#define ss second
+#define pb push_back
+typedef long long ll;
+typedef unsigned long long ull;
+typedef long double ld;
+const ll M=1e9+7;
+ll inf=1e18;
+string to_string(ll x){stringstream ss; ss<<x; return ss.str();}
+ll to_integer(string s){stringstream ss(s); ll x; ss>>x; return x;}
+
+int main()
+{
+    ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+    ll n,f=1;
+    cin>>n;
+    for(ll i=0;i<n;i++)
+    {
+        ll a,b,c;
+        cin>>a>>b>>c;
+        if(a+b>c && b+c>a && a+c>b)
+            continue;
+        else
+        {
+            f=0;
+        }
+    }
+    if(f)
+        cout<<"YES\n";
+    else
+        cout<<"NO\n";
+    return 0;
+}
