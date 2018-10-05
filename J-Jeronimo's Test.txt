@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ff first
+#define ss second
+#define pb push_back
+typedef long long ll;
+typedef unsigned long long ull;
+typedef long double ld;
+const ll M=3LL*(1e7);
+ll inf=1e18;
+string to_string(ll x){stringstream ss; ss<<x; return ss.str();}
+ll to_integer(string s){stringstream ss(s); ll x; ss>>x; return x;}
+
+ll dp[30000005],a[30000005];
+
+int main()
+{
+    ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+    ll n,m,q;
+    cin>>n>>m>>q;
+    for(ll i=1;i<=m;i++)
+    {
+        cin>>dp[i];
+        a[dp[i]]++;
+    }
+    for(ll i=m+1;i<=n;i++)
+    {
+        dp[i]=(dp[i-m]+dp[i-m+1]);
+if(dp[i]>=M)
+dp[i]%=M;
+        a[dp[i]]++;
+    }
+    vector<ll> v;
+    for(ll i=0;i<=30000002;i++)
+    {
+        while(a[i]!=0)
+        {
+            v.pb(i);
+            a[i]--;
+        }
+    }
+    while(q--)
+    {
+        ll x;
+        cin>>x;
+        cout<<v[x-1]<<"\n";
+    }
+}
