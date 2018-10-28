@@ -28,7 +28,7 @@ int main()
             flag=0;
         }
     }
-    if(f)
+    if(flag)
         cout<<"YES\n";
     else
         cout<<"NO\n";
